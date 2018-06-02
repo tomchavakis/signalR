@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace SignalR.Web.Hubs
+namespace SignalR.Api.Hubs
 {
     public class StackstormHub : Hub
     {

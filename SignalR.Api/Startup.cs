@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SignalR.Web.Hubs;
+using SignalR.Api.Hubs;
 
-namespace SignalR.Web
+namespace SignalR.Api
 {
     public class Startup
     {

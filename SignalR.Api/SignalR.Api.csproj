@@ -4,6 +4,8 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
     <UserSecretsId>3fd6d573-efa5-4eff-b291-34e1e6fe9d71</UserSecretsId>
+    <AssemblyName>SignalR.Api</AssemblyName>
+    <RootNamespace>SignalR.Api</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
