@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "SignalR";
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/signalr/signalr.js"></script>
+
+<h2>SignalR</h2>
+
+<ul id="messagesList">
+
+</ul>
+
+<script type="text/javascript">
+
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("https://localhost:44337/stackstormhub")
+        .configureLogging(signalR.LogLevel.Information)
+        .build();
+    connection.start().catch(err => console.error(err.toString()));
+
+
+    connection.on("ReceiveMessage", (user, message) => {
+        const encodedMsg = user + " says " + message;
+        const li = document.createElement("li");
+        li.textContent = encodedMsg;
+        document.getElementById("messagesList").appendChild(li);
+    });
+
+</script>

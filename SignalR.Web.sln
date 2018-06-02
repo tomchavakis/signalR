@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.Web", "SignalR.Web\SignalR.Web.csproj", "{FCB590E6-91D0-4A4C-A90C-9B77F0775B5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalR.Web", "SignalR.Web\SignalR.Web.csproj", "{FCB590E6-91D0-4A4C-A90C-9B77F0775B5C}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{BB0A92FD-A6BD-4625-8A83-15F8A870FFDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.ClientApp", "SignalR.ClientApp\SignalR.ClientApp.csproj", "{652C1506-14DC-4ADA-8C67-23202298143E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.WebClient", "SignalR.WebClient\SignalR.WebClient.csproj", "{2F853542-FC1F-4AAC-98A1-7633D60A7475}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{BB0A92FD-A6BD-4625-8A83-15F8A870FFDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB0A92FD-A6BD-4625-8A83-15F8A870FFDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB0A92FD-A6BD-4625-8A83-15F8A870FFDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{652C1506-14DC-4ADA-8C67-23202298143E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{652C1506-14DC-4ADA-8C67-23202298143E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{652C1506-14DC-4ADA-8C67-23202298143E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{652C1506-14DC-4ADA-8C67-23202298143E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F853542-FC1F-4AAC-98A1-7633D60A7475}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F853542-FC1F-4AAC-98A1-7633D60A7475}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F853542-FC1F-4AAC-98A1-7633D60A7475}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F853542-FC1F-4AAC-98A1-7633D60A7475}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
