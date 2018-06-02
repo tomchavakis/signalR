@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  signalr.web:
+    image: ${DOCKER_REGISTRY}signalrweb
+    build:
+      context: .
+      dockerfile: SignalR.Web/Dockerfile

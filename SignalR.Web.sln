@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.Web", "SignalR.Web\SignalR.Web.csproj", "{FCB590E6-91D0-4A4C-A90C-9B77F0775B5C}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{BB0A92FD-A6BD-4625-8A83-15F8A870FFDD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FCB590E6-91D0-4A4C-A90C-9B77F0775B5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCB590E6-91D0-4A4C-A90C-9B77F0775B5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCB590E6-91D0-4A4C-A90C-9B77F0775B5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCB590E6-91D0-4A4C-A90C-9B77F0775B5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB0A92FD-A6BD-4625-8A83-15F8A870FFDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB0A92FD-A6BD-4625-8A83-15F8A870FFDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB0A92FD-A6BD-4625-8A83-15F8A870FFDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB0A92FD-A6BD-4625-8A83-15F8A870FFDD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4B819B6D-817F-430C-945A-5B2D772DBB63}
+	EndGlobalSection
+EndGlobal
