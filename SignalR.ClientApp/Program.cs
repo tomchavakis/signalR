@@ -10,29 +10,51 @@ namespace SignalR.ClientApp
         {
             Console.WriteLine("SignalR Client Application Started");
             HubConnection connection = new HubConnectionBuilder()
-                                        .WithUrl("https://localhost:44337/stackstormhub")
+                                        .WithUrl("http://localhost:49897/integrationhub")
                                         .Build();
 
 
 
-            connection.On<string, string>("ReceiveMessage", (user, message) =>
+            //connection.On<string, string>("ReceiveMessage", (user, message) =>
+            //{
+            //    var newMessage = $"{user}: {message}";
+            //    Console.WriteLine(newMessage);
+            //});
+
+            connection.On<string>("ReceiveMessage", (message) =>
             {
-                var newMessage = $"{user}: {message}";
+                var newMessage = $"{message}";
                 Console.WriteLine(newMessage);
             });
 
             try
             {
-                await connection.StartAsync();
+                await connection.StartAsync().ContinueWith((task) =>
+                {
+                    if (task.IsCompleted)
+                        Console.WriteLine("Client Connected");
+                    else
+                        Console.WriteLine("There was an error opening the connection:{0}",
+                                      task.Exception.GetBaseException());
+                });
+
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
 
+            await connection.InvokeAsync("SendMessage","thomas","thomas2");
+
 
             Console.WriteLine("Press any key to exit...");
             Console.Read();
+        }
+
+
+        public void SendMessage()
+        {
+
         }
     }
 }

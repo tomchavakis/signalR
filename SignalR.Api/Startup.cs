@@ -25,7 +25,7 @@ namespace SignalR.Api
              builder =>
              {
                  builder.AllowAnyMethod().AllowAnyHeader()
-                        .WithOrigins("https://localhost:5001")
+                        .WithOrigins("http://localhost:60748")
                         .AllowCredentials();
              }));
 
@@ -51,7 +51,7 @@ namespace SignalR.Api
 
             app.UseSignalR(routes =>
             {
-                routes.MapHub<StackstormHub>("/stackstormhub");
+                routes.MapHub<IntegrationHub>("/integrationhub");
             });
 
             app.UseMvc();

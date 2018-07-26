@@ -10,9 +10,9 @@ namespace SignalR.Api.Controllers
     [ApiController]
     public class StackStormController : ControllerBase
     {
-        private readonly IHubContext<StackstormHub> _hubContext;
+        private readonly IHubContext<IntegrationHub> _hubContext;
         
-        public StackStormController(IHubContext<StackstormHub> hubContext)
+        public StackStormController(IHubContext<IntegrationHub> hubContext)
         {
             _hubContext = hubContext;
         }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SignalR.Api.Hubs
 {
-    public class StackstormHub : Hub
+    public class IntegrationHub : Hub
     {
 
         public Task SendMessageToCaller(string message)
