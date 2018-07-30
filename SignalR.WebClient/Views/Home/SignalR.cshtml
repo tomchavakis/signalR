@@ -12,13 +12,20 @@
 <script type="text/javascript">
 
     const connection = new signalR.HubConnectionBuilder()
-        .withUrl("http://localhost:49897/integrationhub")
+        .withUrl("http://localhost:49897/integrationhub?entity=case&entityId=376")
         .configureLogging(signalR.LogLevel.Information)
         .build();
     connection.start().catch(err => console.error(err.toString()));
 
 
     connection.on("ReceiveMessage", (message) => {
+        const encodedMsg = message;
+        const li = document.createElement("li");
+        li.textContent = encodedMsg
+        document.getElementById("messagesList").appendChild(li);
+    });
+
+    connection.on("AddArtifact", (message) => {
         const encodedMsg = message;
         const li = document.createElement("li");
         li.textContent = encodedMsg

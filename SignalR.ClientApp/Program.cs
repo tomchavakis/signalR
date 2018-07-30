@@ -27,6 +27,13 @@ namespace SignalR.ClientApp
                 Console.WriteLine(newMessage);
             });
 
+
+            connection.On<string>("connections", (message) =>
+            {
+                var newMessage = $"{message}";
+                Console.WriteLine(newMessage);
+            });
+
             connection.On<string>("UpdateExecution", (message) =>
             {
                 var newMessage = $"{message}";
