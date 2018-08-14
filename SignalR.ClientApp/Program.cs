@@ -9,22 +9,20 @@ namespace SignalR.ClientApp
     {
         private static bool isConnected = false;
         private static HubConnection connection = null;
+        private const string jwt = "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYW5hbHlzdDIiLCJyb2xlcyI6IkFMRVYyIiwibmJmIjoxNTM0MjMwOTgzLCJleHAiOjE1MzQzMTczODMsImlzcyI6IlNvY3NUb2tlblNlcnZlciIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQzNzYvIn0.6x3bhf9JsiwN8NjI5oREAmFyv8ptnvfs2HuTK2RxOSk";
 
         static async Task Main(string[] args)
         {
             Console.WriteLine("SignalR Client Application Started");
 
-            var jwt = "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYW5hbHlzdDIiLCJyb2xlcyI6IkFMRVYyIiwibmJmIjoxNTM0MjMwOTgzLCJleHAiOjE1MzQzMTczODMsImlzcyI6IlNvY3NUb2tlblNlcnZlciIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQzNzYvIn0.6x3bhf9JsiwN8NjI5oREAmFyv8ptnvfs2HuTK2RxOSk";
 
+            //Connect through JWT Token (Required [Authorize] Attribute at the IntegrationHub Broker)
+            //JWTConnection();
 
-            connection = new HubConnectionBuilder()
-                .WithUrl("http://localhost:49897/integrationhub?entity=case&entityId=376", options => {
-                    options.AccessTokenProvider = async () =>
-                    {
-                        return jwt;
-                    };
-                }).Build();
+            //Connect without Authentication
+            SimpleConnection();
 
+            #region ' Listeners '
             connection.On<string>("ReceiveMessage", (message) =>
             {
                 var newMessage = $"{message}";
@@ -56,6 +54,8 @@ namespace SignalR.ClientApp
                 var newMessage = $"{message}";
                 Console.WriteLine(newMessage);
             });
+            #endregion
+            
 
             try
             {
@@ -67,11 +67,9 @@ namespace SignalR.ClientApp
             }
 
             await connection.InvokeAsync("SendMessage", "thomas", "thomas2");
-
-
+            
             connection.Closed += Connection_Closed;
-
-
+            
             Console.WriteLine("Press any key to exit...");
             Console.Read();
         }
@@ -98,5 +96,26 @@ namespace SignalR.ClientApp
                 });
             }
         }
+
+        /// <summary>
+        /// Connect using a JWT string token
+        /// </summary>
+        public static void JWTConnection()
+        {
+            connection = new HubConnectionBuilder()
+               .WithUrl("http://localhost:49897/integrationhub?entity=case&entityId=376", options => {
+                   options.AccessTokenProvider = async () =>
+                   {
+                       return jwt;
+                   };
+               }).Build();
+        }
+
+        private static void SimpleConnection()
+        {
+            connection = new HubConnectionBuilder()
+              .WithUrl("http://localhost:49897/integrationhub").Build();
+        }
+
     }
 }

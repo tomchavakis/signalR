@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SignalR.Api.Hubs
 {
+    //[Authorize]
     public class IntegrationHub : Hub
     {
 
