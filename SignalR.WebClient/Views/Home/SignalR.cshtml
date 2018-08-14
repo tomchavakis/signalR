@@ -13,6 +13,7 @@
 
     const connection = new signalR.HubConnectionBuilder()
         .withUrl("http://localhost:49897/integrationhub?entity=case&entityId=376")
+        //.withUrl("http://localhost:49897/integrationhub")
         .configureLogging(signalR.LogLevel.Information)
         .build();
     connection.start().catch(err => console.error(err.toString()));
